@@ -37,17 +37,22 @@
     <div class="top">
       <div class="container">
 
+        <div class="left-menu">
+                  
         <div v-for="(linkEl,index) in links"
         :key="index"
         class="link-elements">
-          <h4>{{linkEl.title}}</h4>
+          <h4>{{linkEl.title.toUpperCase()}}</h4>
           <ul>
-            <li></li>
+            <li v-for="(link, index) in linkEl.linkList"
+            :key="index"><a href="">{{link}}</a></li>
           </ul>
         </div>
 
+        </div>
+
         <div class="logo">
-          
+          <img src="../assets/img/dc-logo-bg.png" alt="">
         </div>
 
       </div>
@@ -66,26 +71,61 @@
 @use '../styles/partials/mixin' as *;
 
 footer{
-  height: calc(100vh - (120px + 160px + 140px));
-  background-image: url('../assets/img/footer-bg.jpg') ;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  z-index: -2;
-  overflow: hidden;
+  
+  height: calc(100VH - (120px + 140px + 160px));
+
   .top{
     height: calc(100% - 100px);
-    @include d-flex('standard');
-      position: relative;
-      z-index: -1;
+    background-image: url('../assets/img/footer-bg.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+   
+      .container{
+        display: flex;
+        justify-content: space-between;
 
-    .logo{
-      height: 600px;
-      background-image: url('../assets/img/dc-logo-bg.png');
-      background-repeat: no-repeat;
-      background-size: contain ;
-      
-    }
+        .logo{
+          overflow: hidden;
+        }
+        
+        .left-menu{
+          padding: 20px 0;
+          display: flex;
+          flex-wrap: wrap;
+          max-width: 600px;
+          .link-elements{
+            display: inline-block;
+            padding: 0 20px;
+            
+            h4{
+              padding-bottom: 1em ;
+            }
+
+            a{
+              color:  darken($color: $secondary-color, $amount: 50);
+              font-size: .8em;
+              line-height: 2em;
+
+              &:hover{
+                color: $secondary-color;
+              }
+            }
+            
+          }
+        }
+         
+        img{
+          object-position: 0 -50px;
+        }
+
+
+        h4{
+           color: $secondary-color;
+          }
+      }
+
+
   }
   .bot{
     height: 100px;
