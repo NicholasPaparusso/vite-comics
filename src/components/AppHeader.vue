@@ -37,7 +37,7 @@
           },
 
           {
-            text: 'cocllectibles',
+            text: 'collectibles',
             href: '#',
             current: false
           },
@@ -86,7 +86,7 @@
         <ul>
           <li v-for="(link, index) in menu"
           :key="index">
-          <a :class="{'active' : link.current}" :href="link.href">{{link.text}}</a></li>
+          <a :class="{'active' : link.current}" :href="link.href">{{link.text.toUpperCase()}}</a></li>
         </ul>
       </div>
 
@@ -120,8 +120,8 @@ header{
     @include d-flex('standard');
     
     a{
-      padding: 45px 25px;
-      font-size: 0.9em;
+      padding: 46px 15px;
+      font-size: 0.8em;
       font-weight: 600;
        color: $text-color;
        &:hover,
