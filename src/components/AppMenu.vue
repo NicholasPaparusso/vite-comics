@@ -55,7 +55,7 @@
       :key="index"
       class="card">
         <img :src="getImage(item.img)" :alt="item.text">
-        <a :href="item.href" >{{item.text}}</a>
+        <a :href="item.href" >{{item.text.toUpperCase()}}</a>
       </div>
     </div>
 
@@ -90,6 +90,7 @@
       }
       a{
         color: $secondary-color;
+        font-size: .9em;
         &:hover{
           text-decoration: underline;
         }
