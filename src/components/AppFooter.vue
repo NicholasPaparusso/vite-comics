@@ -149,6 +149,11 @@ footer{
 
         .logo{
           overflow: hidden;
+                   
+        img{
+          object-position: 0 -50px;
+        }
+
         }
         
         .left-menu{
@@ -180,11 +185,6 @@ footer{
             
           }
         }
-         
-        img{
-          object-position: 0 -50px;
-        }
-
 
         h4{
            color: $secondary-color;

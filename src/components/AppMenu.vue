@@ -81,6 +81,7 @@
       img{
       width: 50px;
       margin-right: 10px;
+      cursor: pointer;
 
       &:hover{
         transform: scale(1.05);
