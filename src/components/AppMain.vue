@@ -1,6 +1,20 @@
 <script>
+
+  import ComicCard from './ComicCard.vue';
+  import  comics  from '../data/comics.js';
+
   export default {
-  name: 'AppMain',
+    name: 'AppMain',
+    data(){
+      return{
+        comics,
+      }
+    },
+
+  components:{
+    ComicCard ,
+  } 
+
   }
 </script>
 
@@ -8,9 +22,17 @@
 
 <main>
     <div class="container">
-      <h1>
-        Pagina in stato di manutenzione .. scusate l'inconveniente
-      </h1>
+      <ComicCard v-for="(comic, index) in comics"
+      :key="index"
+      :image="comic.thumb"
+      :title="comic.series"  
+      :price="comic.price"
+      :type="comic.type"
+      />
+
+      <div class="btn">
+        <h5>load more</h5>
+      </div>
     </div>    
   </main>
 
@@ -22,11 +44,18 @@
   @use '../styles/partials/mixin' as *;
 
   main{
-    background-color: black;
+    background-color: $main-bg-color;
     color: $secondary-color;
     .container{
-      height: 140px;
-      @include d-flex('standard')
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 50px 0;
+
+      .btn{
+        @include btn('small');
+        justify-self: center;
+      }
     }
   }
 

@@ -76,25 +76,23 @@
   <footer>
 
     <div class="top">
+
       <div class="container">
 
-        <div class="left-menu">
-                  
-        <div v-for="(linkEl,index) in links"
-        :key="index"
-        class="link-elements">
-          <h4>{{linkEl.title.toUpperCase()}}</h4>
-          <ul>
-            <li v-for="(link, index) in linkEl.linkList"
-            :key="index"><a href="">{{link}}</a></li>
-          </ul>
-        </div>
+        
+        <div class="links">
+          <div v-for="(linkEl,index) in links"
+             :key="index"
+            class="link-elements">
+            <h4>{{linkEl.title.toUpperCase()}}</h4>
+            <ul>
+              <li v-for="(link, index) in linkEl.linkList"
+              :key="index"><a href="">{{link}}</a></li>
+            </ul>
+          </div>
+        </div>          
 
-        </div>
-
-        <div class="logo">
-          <img src="../assets/img/dc-logo-bg.png" alt="">
-        </div>
+        <div class="logo"></div>
 
       </div>
     </div>
@@ -148,29 +146,30 @@ footer{
         justify-content: space-between;
 
         .logo{
-          overflow: hidden;
-                   
-        img{
-          object-position: 0 -50px;
-        }
-
+          height: 500px;
+          width: 600px;
+          background-image: url('../assets/img/dc-logo-bg.png');
+          background-repeat: no-repeat;
+          background-position: 0 -50px ;
         }
         
-        .left-menu{
-          padding: 20px 0;
+        .links{        
+          padding: 20px 0;  
           display: flex;
           flex-wrap: wrap;
           max-width: 500px;
           position: relative;
+          top: 0;
           .link-elements{
             padding: 0 25px;
             &:last-child{
-              position: absolute;
-              top: 249px;
+               position: absolute;
+               top: 249px;
             }
             
             h4{
-              padding-bottom: 1em ;
+              padding-bottom: 1em;
+              color: $secondary-color
             }
 
             a{
@@ -184,15 +183,11 @@ footer{
             }
             
           }
+
         }
-
-        h4{
-           color: $secondary-color;
-          }
       }
+    }
 
-
-  }
   .bot{
     height: 100px;
     background-color: $footer-color ;
