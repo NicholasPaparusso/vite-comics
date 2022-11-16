@@ -16,7 +16,7 @@
     <div class="card">
       <div class="image">
         <img :src="image" alt="">
-        <div class="dropdown">
+        <div class="info-hidden">
           <p>Prezzo: {{price}}</p>
           <p>Tipologia: {{type}}</p>
         </div>
@@ -44,6 +44,11 @@
         position: relative;
         top: 0;
 
+        &:hover .info-hidden{
+          opacity: 100;
+          transition: all 1s linear;
+        }
+
         img{
         height: 250px;
         object-fit:cover;
@@ -56,13 +61,14 @@
         font-size: 1.1em;
       }
 
-      .dropdown{
+      .info-hidden{
         font-size: .8em;
         width: 100%;
         background-color: $main-color;
         padding: 5px;
         position: absolute;
         bottom: 7%;
+        opacity: 0;
       }
     }
 
