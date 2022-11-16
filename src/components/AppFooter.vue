@@ -24,9 +24,50 @@
           title: 'shop',
           linkList: ['Shop DC','Shop DC Collectibles'],
         },
+      ],
+
+      socials: [
+        {
+          name: 'facebook',
+          href: '#',
+          img: 'footer-facebook.png'
+        },
+
+        {
+          name: 'twitter',
+          href: '#',
+          img: 'footer-twitter.png'
+        },
+
+        {
+          name: 'youtube',
+          href: '#',
+          img: 'footer-youtube.png'
+        },
+
+        
+        {
+          name: 'pinterest',
+          href: '#',
+          img: 'footer-pinterest.png'
+        },
+
+        
+        {
+          name: 'periscope',
+          href: '#',
+          img: 'footer-periscope.png'
+        },
       ]
     }
+  },
+
+  methods:{
+    getImagePath(imgName){
+      return new URL(`../assets/img/${imgName}`, import.meta.url).href
+    }
   }
+
   }
 </script>
 
@@ -58,7 +99,28 @@
       </div>
     </div>
 
-    <div class="bot"></div>
+    <div class="bot">
+      <div class="container">
+
+        <div class="btn">
+          SIGN-UP NOW!
+        </div>
+
+        <div class="socials">
+          <h3>FOLLOW US</h3>
+
+          <ul>
+            <li v-for="(social,index) in socials"
+            :key="index">
+              <a :href="social.href">
+                <img :src="getImagePath(social.img)" :alt="social.name">
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
 
   </footer>
 
@@ -93,10 +155,14 @@ footer{
           padding: 20px 0;
           display: flex;
           flex-wrap: wrap;
-          max-width: 600px;
+          max-width: 500px;
+          position: relative;
           .link-elements{
-            display: inline-block;
-            padding: 0 20px;
+            padding: 0 25px;
+            &:last-child{
+              position: absolute;
+              top: 249px;
+            }
             
             h4{
               padding-bottom: 1em ;
@@ -130,6 +196,49 @@ footer{
   .bot{
     height: 100px;
     background-color: $footer-color ;
+
+    .container{
+      height: 100%;
+      @include d-flex('standard');
+      justify-content: space-between;
+      .btn{
+        color: $secondary-color;
+        padding: 14px 1.2em;
+        border: 2px solid $main-color;
+        cursor: pointer;
+        &:hover{
+          transform: scale(1.05);
+        }
+      }
+
+      .socials{
+        @include d-flex('standard');
+
+        ul{
+          @include d-flex('standard');
+
+          li{
+            padding: 10px;
+
+            img{
+
+              &:hover{
+                filter: brightness(100);
+              }
+
+            }
+          }
+        }
+
+        h3{
+          margin-right: 20px ;
+          font-size: 1.3em;
+          color:  $main-color;
+        }
+
+
+      }
+    }
   }
 }
 
