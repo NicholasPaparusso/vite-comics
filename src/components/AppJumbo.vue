@@ -19,6 +19,8 @@
   .jumbo{
     height: 400px;
     background-image: url('../assets/img/jumbotron.jpg');
+    background-repeat: no-repeat ;
+    background-size: cover;
     position: relative;
     top: 0;
     .btn{
